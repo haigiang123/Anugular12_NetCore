@@ -4,5 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication\WebApplication.csproj" />
+    <ProjectReference Include="..\WebUltilities\WebUltilities.csproj" />
+    <ProjectReference Include="..\WebViewModel\WebViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
+
 
 </Project>
