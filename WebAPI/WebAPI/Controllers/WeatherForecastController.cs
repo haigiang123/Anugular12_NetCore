@@ -15,12 +15,12 @@ namespace WebAPI.Controllers
     public class WeatherForecastController : ControllerBase
     {
 
-        private readonly IProductService _productService;
+        private readonly IProductPaternService _productPaternService;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(IProductService productService, ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IProductPaternService productPaternService, ILogger<WeatherForecastController> logger)
         {
-            _productService = productService;
+            _productPaternService = productPaternService;
             _logger = logger;
         }
 
@@ -29,6 +29,11 @@ namespace WebAPI.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        /// <summary>
+        /// Gets the list of all Products.
+        /// </summary>
+        /// <returns>The list of Employees.</returns>
+        /// <response code="200">Returns the items</response>
         [HttpGet]
         public PageResultBase<ProductVm> Get()
         {
@@ -37,7 +42,7 @@ namespace WebAPI.Controllers
 
             };
 
-            var a = _productService.GetAllPaging(req);
+            var a = _productPaternService.GetAllPaging(req);
 
             return a;
             //var rng = new Random();

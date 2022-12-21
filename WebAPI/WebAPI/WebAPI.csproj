@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1591</NoWarn>
+    <OutputPath></OutputPath>
+    <DocumentationFile>C:\Users\haigt\Downloads\bk_data\Private_project\Anugular12_NetCore\WebAPI\WebAPI\WebAPI.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\WebApplication\WebApplication.csproj" />
     <ProjectReference Include="..\WebUltilities\WebUltilities.csproj" />
@@ -12,6 +18,12 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
   </ItemGroup>
 
 

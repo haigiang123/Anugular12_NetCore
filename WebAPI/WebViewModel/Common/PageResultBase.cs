@@ -9,11 +9,16 @@ namespace WebViewModel.Common
         public int Size { get; set; }
         public int Page { get; set; }
         public int Total { get; set; }
-        public int PageCount 
-        { 
-            get {
+        public int PageCount
+        {
+            get
+            {
+                if (Size == 0)
+                {
+                    return Size;
+                }
                 return (int)Math.Ceiling((double)(Total / Size));
-            } 
+            }
         }
 
         public List<T> Items { get; set; }

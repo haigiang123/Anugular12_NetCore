@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.WeatherForecastController.Get">
+            <summary>
+            Gets the list of all Products.
+            </summary>
+            <returns>The list of Employees.</returns>
+            <response code="200">Returns the items</response>
+        </member>
+    </members>
+</doc>
