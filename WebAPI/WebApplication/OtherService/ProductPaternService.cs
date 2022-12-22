@@ -37,14 +37,14 @@ namespace WebApplication.OtherService
         private readonly ICategoryTranslationRepository _categoryTranslationRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IStorageService _storageService;
-        private readonly WebAPIDbContext _context;
+        //private readonly WebAPIDbContext _context;
 
         public ProductPaternService(ICategoryRepository categoryRepository, IProductInCategoryRepository productInCategoryRepository,
             IProductRepository productRepository, IProductTranslationRepository productTranslationRepository,
             ILanguageRepository languageRepository, IProductImageRepository productImageRepository,
             ICategoryTranslationRepository categoryTranslationRepository,
-            IUnitOfWork unitOfWork, IStorageService storageService,
-            WebAPIDbContext context
+            IUnitOfWork unitOfWork, IStorageService storageService
+            //WebAPIDbContext context
             )
         {
             _categoryRepository = categoryRepository;
