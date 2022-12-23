@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\source\\repos\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\source\\repos\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\source\\repos\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\admin\\source\\repos\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\source\\repos\\Anugular12_NetCore\\WebAPI\\WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\haigt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\haigt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,321 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs-build01:8080/nuget/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebApplication\\WebApplication.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebApplication\\WebApplication.csproj"
+              },
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj"
+              },
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.6.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebApplication\\WebApplication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebApplication\\WebApplication.csproj",
+        "projectName": "WebApplication",
+        "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebApplication\\WebApplication.csproj",
+        "packagesPath": "C:\\Users\\haigt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebApplication\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\haigt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs-build01:8080/nuget/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj"
+              },
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebRepository\\WebRepository.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebRepository\\WebRepository.csproj"
+              },
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj"
+              },
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.31, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj",
+        "projectName": "WebData",
+        "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj",
+        "packagesPath": "C:\\Users\\haigt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\haigt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs-build01:8080/nuget/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.31, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.31, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.31, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.31, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.31, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.31, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebRepository\\WebRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebRepository\\WebRepository.csproj",
+        "projectName": "WebRepository",
+        "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebRepository\\WebRepository.csproj",
+        "packagesPath": "C:\\Users\\haigt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\haigt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs-build01:8080/nuget/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebData\\WebData.csproj"
+              },
+              "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj": {
+                "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj",
+        "projectName": "WebUltilities",
+        "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\WebUltilities.csproj",
+        "packagesPath": "C:\\Users\\haigt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebUltilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\haigt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs-build01:8080/nuget/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,16 +364,72 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.25, 3.1.25]"
-            }
-          ],
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj",
+        "projectName": "WebViewModel",
+        "projectPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\WebViewModel.csproj",
+        "packagesPath": "C:\\Users\\haigt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\haigt\\Downloads\\bk_data\\Private_project\\Anugular12_NetCore\\WebAPI\\WebViewModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\haigt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs-build01:8080/nuget/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.6.3, )"
             },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

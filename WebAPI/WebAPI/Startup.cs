@@ -27,6 +27,8 @@ using WebRepository.Repository;
 using WebUltilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using FluentValidation.AspNetCore;
+using WebViewModel.SystemService.User;
 
 namespace WebAPI
 {
@@ -42,7 +44,9 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
+            
             services.AddMvc();
 
             services.AddSwaggerGen(options => {
