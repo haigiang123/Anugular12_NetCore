@@ -37,11 +37,11 @@ namespace AdminApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequest request)
         {
-            request.UserName = "haigt";
-            request.Password = "12345678aA@";
+            /*request.UserName = "haigt";
+            request.Password = "12345678aA@";*/
 
-            //if (!ModelState.IsValid)
-            //    return View(ModelState);
+            if (!ModelState.IsValid)
+                return View(ModelState);
 
             var token = await _userService.Authentication(request);
             if (token.ResultObj == null)
@@ -61,7 +61,7 @@ namespace AdminApp.Controllers
                         userPrincipal,
                         authProperties);
 
-            return RedirectToAction("Home");
+            return RedirectToAction("Index","Home");
         }
 
         public async Task<IActionResult> Logout()
