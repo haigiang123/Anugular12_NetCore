@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("authentication")]
-        public async Task<IActionResult> authentication([FromForm]LoginRequest request)
+        public async Task<IActionResult> Authentication([FromBody]LoginRequest request)
         {
             if (!ModelState.IsValid)
             {

@@ -1,0 +1,32 @@
+﻿@model WebViewModel.SystemService.User.LoginRequest
+
+@{
+    Layout = "_Layout";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<div>
+    <form asp-controller="Login" asp-action="Login" method="post" >
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="UserName" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="col-md-4 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Password" type="password" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="Change password" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+    
+</div>
