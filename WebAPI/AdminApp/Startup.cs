@@ -47,7 +47,7 @@ namespace AdminApp
             /*IMvcBuilder builder = services.AddRazorPages();
             builder.AddRazorRuntimeCompitation();*/
             services.AddTransient<IUserService, UserService>();
-
+            services.AddTransient<IRoleService, RoleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

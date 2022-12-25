@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -59,11 +59,31 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getuserspaging")]
-        [Authorize()]
         public async Task<IActionResult> GetUsersPaging([FromQuery]GetUserPagingRequest request)
         {
             var result = await _userService.GetUsersPaging(request);
             return Ok(result);
+        }
+
+        [HttpPut("{id}/role")]
+        public async Task<IActionResult> RoleAssign(Guid id, [FromBody] RoleAssignRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.RoleAssign(id, request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var user = await _userService.GetById(id);
+            return Ok(user);
         }
 
     }

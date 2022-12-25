@@ -134,6 +134,7 @@ namespace WebAPI
             services.AddTransient<IStorageService, StorageService>();
             services.AddTransient<IProductPaternService, ProductPaternService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
             #endregion
 
@@ -158,7 +159,7 @@ namespace WebAPI
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ClockSkew = System.TimeSpan.Zero,
-                    IssuerSigningKey = new SymmetricSecurityKey(signingKeyBytes)
+                    IssuerSigningKey = new SymmetricSecurityKey(signingKeyBytes),
                 };
             });
 
