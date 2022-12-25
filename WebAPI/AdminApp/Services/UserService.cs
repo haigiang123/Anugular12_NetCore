@@ -1,10 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using WebUltilities;
 using WebViewModel.Common;
 using WebViewModel.SystemService.User;
 
@@ -13,15 +17,21 @@ namespace AdminApp.Services
     public interface IUserService
     {
         Task<ApiResult<string>> Authentication(LoginRequest request);
+        Task<ApiResult<PageResultBase<UserVm>>> GetUsersPaging(GetUserPagingRequest request);
+        Task<ApiResult<bool>> RegisterUser(RegisterRequest registerRequest);
     }
 
     public class UserService : IUserService
     {
         private readonly IHttpClientFactory _httpClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-        public UserService(IHttpClientFactory httpClient)
+        public UserService(IHttpClientFactory httpClient, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
         }
 
         public async Task<ApiResult<string>> Authentication(LoginRequest request)
@@ -29,7 +39,7 @@ namespace AdminApp.Services
             var content = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
             var client = _httpClient.CreateClient();
-            client.BaseAddress = new Uri("https://localhost:5001");
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
             var result = await client.PostAsync("/api/User/authentication", content);
 
             if (result.IsSuccessStatusCode)
@@ -41,5 +51,36 @@ namespace AdminApp.Services
 
             //return await result.Content.ReadAsStringAsync();
         }
+
+        public async Task<ApiResult<PageResultBase<UserVm>>> GetUsersPaging(GetUserPagingRequest request)
+        {
+            var token = _httpContextAccessor.HttpContext.Session.GetString(SystemConstants.AppSettings.Token);
+
+            var client = _httpClient.CreateClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            var response = await client.GetAsync($"/api/User/getuserspaging?pageIndex={request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}");
+            var body = await response.Content.ReadAsStringAsync();
+            var users = JsonConvert.DeserializeObject<ApiSuccessResult<PageResultBase<UserVm>>>(body);
+            
+            return users;
+        }
+
+        public async Task<ApiResult<bool>> RegisterUser(RegisterRequest registerRequest)
+        {
+            var client = _httpClient.CreateClient();
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+
+            var json = JsonConvert.SerializeObject(registerRequest);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("/api/user/register", httpContent);
+            var result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+                return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+
+            return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
+        }
+
     }
 }

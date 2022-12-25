@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -24,6 +26,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("authentication")]
+        [AllowAnonymous]
         public async Task<IActionResult> Authentication([FromBody]LoginRequest request)
         {
             if (!ModelState.IsValid)
@@ -41,6 +44,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("register")]
+        [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
             if (!ModelState.IsValid)
@@ -51,6 +55,14 @@ namespace WebAPI.Controllers
             {
                 return BadRequest(result);
             }
+            return Ok(result);
+        }
+
+        [HttpGet("getuserspaging")]
+        [Authorize()]
+        public async Task<IActionResult> GetUsersPaging([FromQuery]GetUserPagingRequest request)
+        {
+            var result = await _userService.GetUsersPaging(request);
             return Ok(result);
         }
 

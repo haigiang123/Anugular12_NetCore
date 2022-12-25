@@ -1,6 +1,7 @@
 ﻿using AdminApp.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using WebUltilities;
 using WebViewModel.SystemService.User;
 
 namespace AdminApp.Controllers
@@ -61,14 +63,16 @@ namespace AdminApp.Controllers
                         userPrincipal,
                         authProperties);
 
-            return RedirectToAction("Index","Home");
+            HttpContext.Session.SetString(SystemConstants.AppSettings.Token, token.ResultObj);
+
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         private ClaimsPrincipal ValicateToken(string token)

@@ -31,6 +31,10 @@ namespace AdminApp
             services.AddControllers()
                .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
+            services.AddSession(x=> {
+                x.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
@@ -61,6 +65,8 @@ namespace AdminApp
 
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseAuthentication();
 
             app.UseRouting();
@@ -69,8 +75,8 @@ namespace AdminApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(name: "login", pattern: "{controller=Login}/{action=Login}/{id?}");
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "login", pattern: "{controller=Login}/{action=Login}/{id?}");
             });
         }
     }
