@@ -21,7 +21,7 @@ namespace WebApplication.SystemService
         Task<ApiResult<bool>> Register(RegisterRequest request);
         Task<ApiResult<bool>> Delete(Guid id);
         Task<ApiResult<UserVm>> GetById(Guid id);
-        Task<ApiResult<PageResultBase<UserVm>>> GetUsersPaging(GetUserPagingRequest request);
+        Task<ApiResult<PagedResult<UserVm>>> GetUsersPaging(GetUserPagingRequest request);
         Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request);
         Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request);
     }
@@ -116,7 +116,7 @@ namespace WebApplication.SystemService
             return new ApiSuccessResult<UserVm>(userVm);
         }
 
-        public async Task<ApiResult<PageResultBase<UserVm>>> GetUsersPaging(GetUserPagingRequest request)
+        public async Task<ApiResult<PagedResult<UserVm>>> GetUsersPaging(GetUserPagingRequest request)
         {
             var query = _userManager.Users;
             if (!string.IsNullOrEmpty(request.Keyword))
@@ -141,14 +141,14 @@ namespace WebApplication.SystemService
                 }).ToListAsync();
 
             //4. Select and projection
-            var pagedResult = new PageResultBase<UserVm>()
+            var pagedResult = new PagedResult<UserVm>()
             {
                 Total = totalRow,
                 Page = request.PageIndex,
                 Size = request.PageSize,
                 Items = data
             };
-            return new ApiSuccessResult<PageResultBase<UserVm>>(pagedResult);
+            return new ApiSuccessResult<PagedResult<UserVm>>(pagedResult);
         }
 
         public async Task<ApiResult<bool>> Register(RegisterRequest request)

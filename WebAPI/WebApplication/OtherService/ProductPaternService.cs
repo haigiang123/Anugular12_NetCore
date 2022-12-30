@@ -21,7 +21,7 @@ namespace WebApplication.OtherService
     public interface IProductPaternService
     {
         Task<int> Create(ProductCreateRequest request);
-        PageResultBase<ProductVm> GetAllPaging(GetManageProductPagingRequest request);
+        PagedResult<ProductVm> GetAllPaging(GetManageProductPagingRequest request);
     }
 
     public class ProductPaternService : IProductPaternService
@@ -163,7 +163,7 @@ namespace WebApplication.OtherService
             return await _unitOfWork.SaveChange();
         }
 
-        public PageResultBase<ProductVm> GetAllPaging(GetManageProductPagingRequest request)
+        public PagedResult<ProductVm> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _productRepository.GetAll()
@@ -209,7 +209,7 @@ namespace WebApplication.OtherService
                 }).ToList();
 
             //4. Select and projection
-            var pagedResult = new PageResultBase<ProductVm>()
+            var pagedResult = new PagedResult<ProductVm>()
             {
                 Total = totalRow,
                 Size = request.PageSize,
@@ -368,7 +368,7 @@ namespace WebApplication.OtherService
             return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
         }
 
-        public PageResultBase<ProductVm> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request)
+        public PagedResult<ProductVm> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _productRepository.GetAll()
@@ -405,7 +405,7 @@ namespace WebApplication.OtherService
                 }).ToList();
 
             //4. Select and projection
-            var pagedResult = new PageResultBase<ProductVm>()
+            var pagedResult = new PagedResult<ProductVm>()
             {
                 Total = totalRow,
                 Size = request.PageSize,

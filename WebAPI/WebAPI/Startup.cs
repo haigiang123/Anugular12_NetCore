@@ -110,7 +110,7 @@ namespace WebAPI
             services.AddSingleton<ISingleton, SomeDI>();
 
             services.AddDbContext<WebAPIDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString))); ;
+                options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 
             services.AddTransient<IFactory, Factory>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
@@ -136,6 +136,7 @@ namespace WebAPI
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ICategoryService, CategoryService>();
             #endregion
 
             string issuer = Configuration.GetValue<string>("Tokens:Issuer");

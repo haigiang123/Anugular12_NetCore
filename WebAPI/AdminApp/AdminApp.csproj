@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebApplication\WebApplication.csproj" />
     <ProjectReference Include="..\WebUltilities\WebUltilities.csproj" />
     <ProjectReference Include="..\WebViewModel\WebViewModel.csproj" />
   </ItemGroup>

@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
         /// <returns>The list of Employees.</returns>
         /// <response code="200">Returns the items</response>
         [HttpGet]
-        public PageResultBase<ProductVm> Get()
+        public PagedResult<ProductVm> Get()
         {
             GetManageProductPagingRequest req = new GetManageProductPagingRequest
             {

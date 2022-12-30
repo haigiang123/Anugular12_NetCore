@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WebViewModel.Common
 {
-    public class PageResultBase<T>
+    public class PageResultBase
     {
         public int Size { get; set; }
         public int Page { get; set; }
@@ -20,8 +20,5 @@ namespace WebViewModel.Common
                 return (int)Math.Ceiling((double)(Total / Size));
             }
         }
-
-        public List<T> Items { get; set; }
-
     }
 }

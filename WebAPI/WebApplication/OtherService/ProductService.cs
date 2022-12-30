@@ -32,7 +32,7 @@ namespace WebApplication.OtherService
 
         Task AddViewcount(int productId);
 
-        Task<PageResultBase<ProductVm>> GetAllPaging(GetManageProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllPaging(GetManageProductPagingRequest request);
 
         Task<int> AddImage(int productId, ProductImageCreateRequest request);
 
@@ -44,7 +44,7 @@ namespace WebApplication.OtherService
 
         Task<List<ProductImageViewModel>> GetListImages(int productId);
 
-        Task<PageResultBase<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
 
         Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
 
@@ -99,7 +99,7 @@ namespace WebApplication.OtherService
             var translations = new List<ProductTranslation>();
             foreach (var language in languages)
             {
-                if (language.Id == request.LanguageId)
+                if (language.Id == "vi")
                 {
                     translations.Add(new ProductTranslation()
                     {
@@ -109,7 +109,7 @@ namespace WebApplication.OtherService
                         SeoDescription = request.SeoDescription,
                         SeoAlias = request.SeoAlias,
                         SeoTitle = request.SeoTitle,
-                        LanguageId = request.LanguageId
+                        LanguageId = "vi" ,
                     });
                 }
                 else
@@ -119,7 +119,7 @@ namespace WebApplication.OtherService
                         Name = SystemConstants.ProductConstants.NA,
                         Description = SystemConstants.ProductConstants.NA,
                         SeoAlias = SystemConstants.ProductConstants.NA,
-                        LanguageId = language.Id
+                        LanguageId = "vi",
                     });
                 }
             }
@@ -149,8 +149,10 @@ namespace WebApplication.OtherService
                 };
             }
             _context.Products.Add(product);
+
             await _context.SaveChangesAsync();
             return product.Id;
+           
         }
 
         public async Task<int> Delete(int productId)
@@ -169,7 +171,7 @@ namespace WebApplication.OtherService
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<PageResultBase<ProductVm>> GetAllPaging(GetManageProductPagingRequest request)
+        public async Task<PagedResult<ProductVm>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
@@ -180,7 +182,7 @@ namespace WebApplication.OtherService
                         from c in picc.DefaultIfEmpty()
                         join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
                         from pi in ppi.DefaultIfEmpty()
-                        where pt.LanguageId == request.LanguageId && pi.IsDefault == true
+                        //where pt.LanguageId == request.LanguageId && pi.IsDefault == true
                         select new { p, pt, pic, pi };
             //2. filter
             if (!string.IsNullOrEmpty(request.Keyword))
@@ -215,7 +217,7 @@ namespace WebApplication.OtherService
                 }).ToListAsync();
 
             //4. Select and projection
-            var pagedResult = new PageResultBase<ProductVm>()
+            var pagedResult = new PagedResult<ProductVm>()
             {
                 Total = totalRow,
                 Size = request.PageSize,
@@ -244,7 +246,7 @@ namespace WebApplication.OtherService
                 Id = product.Id,
                 DateCreated = product.DateCreated,
                 Description = productTranslation != null ? productTranslation.Description : null,
-                LanguageId = productTranslation.LanguageId,
+                LanguageId = "vi",
                 Details = productTranslation != null ? productTranslation.Details : null,
                 Name = productTranslation != null ? productTranslation.Name : null,
                 OriginalPrice = product.OriginalPrice,
@@ -374,7 +376,7 @@ namespace WebApplication.OtherService
             return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
         }
 
-        public async Task<PageResultBase<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request)
+        public async Task<PagedResult<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request)
         {
             //1. Select join
             var query = from p in _context.Products
@@ -411,7 +413,7 @@ namespace WebApplication.OtherService
                 }).ToListAsync();
 
             //4. Select and projection
-            var pagedResult = new PageResultBase<ProductVm>()
+            var pagedResult = new PagedResult<ProductVm>()
             {
                 Total = totalRow,
                 Size = request.PageSize,

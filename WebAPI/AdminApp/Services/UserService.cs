@@ -17,7 +17,7 @@ namespace AdminApp.Services
     public interface IUserService
     {
         Task<ApiResult<string>> Authentication(LoginRequest request);
-        Task<ApiResult<PageResultBase<UserVm>>> GetUsersPaging(GetUserPagingRequest request);
+        Task<ApiResult<PagedResult<UserVm>>> GetUsersPaging(GetUserPagingRequest request);
         Task<ApiResult<bool>> RegisterUser(RegisterRequest registerRequest);
         Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request);
         Task<ApiResult<UserVm>> GetById(Guid id);
@@ -54,7 +54,7 @@ namespace AdminApp.Services
             //return await result.Content.ReadAsStringAsync();
         }
 
-        public async Task<ApiResult<PageResultBase<UserVm>>> GetUsersPaging(GetUserPagingRequest request)
+        public async Task<ApiResult<PagedResult<UserVm>>> GetUsersPaging(GetUserPagingRequest request)
         {
             var token = _httpContextAccessor.HttpContext.Session.GetString(SystemConstants.AppSettings.Token);
 
@@ -63,7 +63,7 @@ namespace AdminApp.Services
             client.BaseAddress = new Uri(_configuration["BaseAddress"]);
             var response = await client.GetAsync($"/api/User/getuserspaging?pageIndex={request.PageIndex}&pageSize={request.PageSize}&keyword={request.Keyword}");
             var body = await response.Content.ReadAsStringAsync();
-            var users = JsonConvert.DeserializeObject<ApiSuccessResult<PageResultBase<UserVm>>>(body);
+            var users = JsonConvert.DeserializeObject<ApiSuccessResult<PagedResult<UserVm>>>(body);
             
             return users;
         }
