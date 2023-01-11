@@ -1,0 +1,37 @@
+
+<div
+  class="progress-bar-container"
+  [style.backgroundColor]="backgroundColor">
+  <div
+    class="progress"
+    [style]="{
+      backgroundColor: progressColor,
+      width: progress + '%'
+    }">
+  </div>
+  <div>
+<!-- <input [(ngModel)]="progress"/> -->
+    <!-- <input [(ngModel)]="reviseProcess" /> -->
+
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+          <th scope="col">IpAddress</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let a of listAuthorInput; index as idx">
+        <tr>
+          <th scope="row">{{a.id}} <button (click)="deleteObject(a.id)">X</button></th>
+          <td>{{a.firstName}}</td>
+          <td>{{a.lastName}}</td>
+          <td>{{a.email}}</td>
+          <td>{{a.ipAddress}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

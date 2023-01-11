@@ -1,0 +1,47 @@
+<div>
+  <ng-container  *ngFor="let a of userInfo; count as total; index as idx; last as ilast, odd as iodd, even as ieven" >
+    <div [ngClass]="iodd ? 'test-add-class-odd'  : 'test-add-class-even'" >
+        <p>{{idx}}</p>
+        <p>{{a.Name}}</p>
+        <p>{{a.Age}}</p>
+        <p>{{a.Address}}</p>
+    </div>
+    <div *ngIf="ilast">
+        <p>{{total}}</p>
+    </div>
+  </ng-container>
+</div>
+
+<div>
+  <table class="table table-bordered">
+    <thead class="thead-dark" [ngClass]="{'my_class': true, 'my_class2': true}">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let a of userInfo; index as idx">
+      <tr>
+        <th scope="row">{{idx}}</th>
+        <td>{{a.Name}}</td>
+        <td>{{a.Age}}</td>
+        <td>{{a.Address}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-review-knowledge-child
+  [progress]="1"
+  [backgroundColor]="'#9e9e9e'"
+  [progressColor]="'#2e8b57'"
+  [listAuthorInput] = 'listAuthor'
+  (handleDeleteAction) = 'deleteObject1($event)'>
+</app-review-knowledge-child>
+
+<app-toggle [(checked)]="checked" ></app-toggle>
+
+
+

@@ -1,0 +1,7 @@
+div.test-add-class-even {
+  border-style: dotted;
+}
+
+div.test-add-class-odd{
+  border-style: groove;
+}
