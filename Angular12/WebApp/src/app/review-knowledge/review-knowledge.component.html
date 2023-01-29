@@ -38,10 +38,27 @@
   [backgroundColor]="'#9e9e9e'"
   [progressColor]="'#2e8b57'"
   [listAuthorInput] = 'listAuthor'
-  (handleDeleteAction) = 'deleteObject1($event)'>
+  (handleDeleteAction) = 'DeleteObject1($event)'>
 </app-review-knowledge-child>
 
-<app-toggle [(checked)]="checked" ></app-toggle>
+<app-toggle [(checked)]="checked" #toggleTemp ></app-toggle>
+
+<button (click)="toggleTemp.toggle()" >Click to Call function inside toggle</button>
+
+<input type="text" #nameInput />
+<button (click) = "ViewChild()" >Click to check ViewChild</button>
+
+<app-toggle #componentRef></app-toggle>
 
 
-
+<form #nameForm="ngForm">
+  <input
+    type="text"
+    class="form-control"
+    required
+    [(ngModel)]="userInfo[0].Name"
+    name="name"
+    #name="ngModel"
+  />
+  <button>Submit</button>
+</form>
