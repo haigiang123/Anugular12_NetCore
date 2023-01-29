@@ -48,7 +48,12 @@
 <input type="text" #nameInput />
 <button (click) = "ViewChild()" >Click to check ViewChild</button>
 
-<app-toggle #componentRef></app-toggle>
+<app-toggle #componentRef>
+  <p class="ng-content-header">Header</p>
+  <p class="ng-content-content">Content</p>
+  <ng-container ngProjectAs="label" >This is container</ng-container>
+  <p class="ng-content-footer">Footer</p>
+</app-toggle>
 
 
 <form #nameForm="ngForm">
