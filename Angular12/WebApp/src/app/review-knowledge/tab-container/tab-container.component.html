@@ -1,0 +1,65 @@
+<!--Case 1-->
+<div ngModel *ngIf="User[0] === null ;else noPG13">
+
+</div>
+
+<ng-template #noPG13>
+  <select *ngFor="let item of User">
+    <option>{{item.FirstName + " " + item.LastName}}</option>
+  </select>
+</ng-template>
+
+<!--Case 2-->
+<div class="card">
+  <div class="card-header">
+    You have selected
+    <span class="badge badge-primary">{{ User[0].FirstName }}</span> items.
+  </div>
+  <div class="card-body">
+    There are <span class="badge badge-primary">{{ User[0].FirstName }}</span> items was
+    selected.
+  </div>
+  <div class="card-footer">
+    You have selected
+    <span class="badge badge-primary">{{ User[0].FirstName }}</span> items.
+  </div>
+</div>
+
+<!--We can optimize chunk in case2 like this-->
+
+<ng-template #counterTmpl >
+  <span class="badge badge-primary">{{ User[0].FirstName }}</span>
+</ng-template>
+<div class="card">
+  <div class="card-header">
+    You have selected
+    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>
+  </div>
+  <div class="card-body">
+    There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> items was
+    selected.
+  </div>
+  <div class="card-footer">
+    You have selected
+    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> items.
+  </div>
+</div>
+
+
+<!--Case 3-->
+<ng-template #buttonTmpl let-label="label" let-icon="icon" let-className="className">
+  <button [ngClass]="['btn', className]">
+    <i *ngIf="icon" class="fa {{icon}}"></i>
+    {{label}}
+  </button>
+</ng-template>
+
+<ng-container
+  [ngTemplateOutlet]="buttonTmpl"
+  [ngTemplateOutletContext]="{ label: 'Click here', className: 'btn-primary', icon: null }">
+</ng-container>
+
+<ng-container
+  [ngTemplateOutlet]="buttonTmpl"
+  [ngTemplateOutletContext]="{ label: 'Remove', className: 'btn-danger', icon: 'fa-remove' }">
+</ng-container>

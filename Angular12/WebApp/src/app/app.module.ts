@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ReviewKnowledgeComponent } from './review-knowledge/review-knowledge.component';
 import { ReviewKnowledgeChildComponent } from './review-knowledge/review-knowledge-child/review-knowledge-child.component';
 import { ToggleComponent } from './review-knowledge/toggle/toggle.component';
+import { TabContainerComponent } from './review-knowledge/tab-container/tab-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReviewKnowledgeComponent,
     ReviewKnowledgeChildComponent,
-    ToggleComponent
+    ToggleComponent,
+    TabContainerComponent
    ],
   imports: [
     BrowserModule,
